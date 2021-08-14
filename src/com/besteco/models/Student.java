@@ -3,6 +3,7 @@ package com.besteco.models;
 import com.besteco.models.enums.Gender;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -14,7 +15,7 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     private String name;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     private String address;
     private Gender gender;
 
@@ -24,11 +25,15 @@ public class Student {
     public Student() {
     }
 
-    public Student(String name, Date dateOfBirth, String address, Gender gender) {
+    public Student(String name, LocalDate dateOfBirth, String address, Gender gender) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.address = address;
         this.gender = gender;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getName() {
@@ -39,11 +44,11 @@ public class Student {
         this.name = name;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

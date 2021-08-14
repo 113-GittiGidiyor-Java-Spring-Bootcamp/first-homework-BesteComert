@@ -28,6 +28,10 @@ public class Course {
         this.courseScore = courseScore;
     }
 
+    public String getId() {
+        return id;
+    }
+
     public String getCourseName() {
         return courseName;
     }

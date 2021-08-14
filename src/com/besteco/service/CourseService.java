@@ -1,6 +1,8 @@
 package com.besteco.service;
 
 import com.besteco.models.Course;
+import com.besteco.models.Instructor;
+import com.besteco.models.Student;
 import com.besteco.repository.CrudRepository;
 import com.besteco.utils.EntityManagerUtils;
 
@@ -44,5 +46,15 @@ public class CourseService implements CrudRepository<Course> {
         em.remove(course);
 
         em.getTransaction().commit();
+    }
+
+    public List<Student> findAllStudentsByCourse(String id){
+        List<Student> students= findById(id).getStudentList();
+        return students;
+    }
+
+    public Instructor findInstructorofTheCourse(String id){
+        Instructor instructor = findById(id).getInstructor();
+        return instructor;
     }
 }
